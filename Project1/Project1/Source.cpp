@@ -2,18 +2,16 @@
 #include <windows.h>
 #include <ctime>
 using namespace std;
-// Створити функцію з використанням статичної змінної яка повертає середнє арифметичне чисел що були її аргументами
+// Знайти максимальне число в функції
 float avg(float num) {
-	static float count = 0, sum = 0;
-	count++;
-	sum += num;
-	cout << "Count = " << count << " Sum = " << sum << endl;
-	return (sum / count);
+	static float max = -10000000;
+	if (max < num) max = num;
+	return max;
 }
 void main() {
 	srand(time(0));
-	avg(5);
-	avg(6);
-	avg(10);
+	cout << avg(10) << endl;
+	cout << avg(5) << endl;
+	cout << avg(2) << endl;
 	system("pause");
 }
